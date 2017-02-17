@@ -32,9 +32,24 @@
 
         <!-- RESULT SECTION -->
         <?php if($displayResult): ?>
-            <div class='alert alert-info'>Result: <?=$n?></div>
-        <?php endif; ?>
-
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 formula">
+                    <h2>The Result. We are not alone.<br />
+                    <small>
+                    Based on the calculations you entered there are
+                    <span class="result"><?=$n?></span>
+                    communicating civilizations in our Milky Way Galaxy alone.
+                    If intelligent life exists within our home galaxy then
+                    it surely would exist in others.  Estimates vary
+                    but among scientists an acceptable range is between 100
+                    billion and 200 billion galaxies in the Universe.
+                    </small>
+                    </h2>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        <?php else: ?>
         <!-- EQUATION SECTION -->
         <div class="row">
             <div class="col-md-2"></div>
@@ -69,8 +84,9 @@
                     European Space Agency provide estimates of star formation
                     between 1.5 - 3 stars per year.
                     </p>
-                    <select class="form-control" name="formulaR" id="formulaR">
-                        <option value="SELECT">
+                    <select class="form-control" name="formulaR"
+                        id="formulaR" required>
+                        <option value="">
                             STEP 1 - SELECTION NEEDED
                         </option>
                         <option value="1.0">
@@ -160,13 +176,13 @@
                     <p class="hint">The original estimates forecast between 1 to
                     5 planets. Data from the Kepler space observatory and other
                     scientific discoveries have challenged scientists to revise
-                    calculations to weigh other considerations in their
-                    calculations of the number planets that may exist within
+                    calculations and to weigh other considerations in their
+                    evaluations of the number planets that may exist within
                     'habitable' zones.  Kepler space mission data would suggest
                     this number is roughly 0.4.
                     </p>
                     <input type="text" name="formulaNE" id="formulaNE"
-                        placeholder="0.4" />
+                        placeholder="0.4" required/>
                 </div>
                 <br />
 
@@ -174,12 +190,12 @@
                 <div class="form-group">
                     <label for="formulaFL">Step 4: Fraction of those planets
                     that actually develop life</label>
-                    <p class="hint">Drake's calculation estimated that 100
-                    percent of all planets that could develop life would
+                    <p class="hint">Drake's initial calculation estimated that
+                    100 percent of all planets that could develop life would
                     develop life.
                     </p>
                     <input type="text" name="formulaFL" id="formulaFL"
-                        placeholder="1.0" />
+                        placeholder="1.0" min="0" required/>
                 </div>
                 <br />
 
@@ -193,7 +209,7 @@
                     percent of these planets would eventually develop
                     intelligent life.</p>
                     <input type="text" name="formulaFI" id="formulaFI"
-                        placeholder="1.0" />
+                        placeholder="1.0" min="0" max="1" required/>
                 </div>
                 <br />
 
@@ -204,7 +220,7 @@
                     <p class="hint">Drake's calculation projected that between
                     10-20% of intelligent life would communicate.</p>
                     <input type="text" name="formulaFC" id="formulaFC"
-                        placeholder="0.2" />
+                        placeholder="0.2" min="0" max="1" required/>
                 </div>
                 <br />
 
@@ -216,7 +232,7 @@
                     1000-100,000,000 years.  Figures can be wildly different.
                     </p>
                     <input type="text" name="formulaL" id="formulaL"
-                        placeholder="320.0" />
+                        placeholder="320.0" min="0" required/>
                 </div>
                 <input type="submit" class="btn btn-primary btn-small">
                 <br />
@@ -227,6 +243,7 @@
             <!-- FORM :: END -->
             <div class="col-md-2"></div>
         </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
