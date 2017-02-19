@@ -1,75 +1,86 @@
 <?php
-// formula variables from submitted form
-// Drake equation: N = R* • fp • ne • fl • fi • fc • L
-if(isset($_GET["formulaR"])) {
-    $r = $_GET["formulaR"];
-}
-else {
-    $r = 0;
+require('Form.php');
+
+# Drake equation: N = R* • fp • ne • fl • fi • fc • L
+# Setting default values for the formula fields
+# If the form has errors the formula will return 0
+$r = 0;
+$fp = 0;
+$ne = 0;
+$fl = 0;
+$fi = 0;
+$fc = 0;
+$l = 0;
+
+$form = new DWA\Form($_GET);
+
+if(isset($_GET['step1'])) {
+    $r = $_GET['step1'];
 }
 
-if(isset($_GET["formulaFP"])) {
-    $fp = $_GET["formulaFP"];
-}
-else {
-    $fp = 0;
+if(isset($_GET['step2'])) {
+    $fp = $_GET['step2'];
 }
 
-if(isset($_GET["formulaNE"])) {
-    $ne = $_GET["formulaNE"];
-}
-else {
-    $ne = 0;
-}
-
-if(isset($_GET["formulaFL"])) {
-    $fl = $_GET["formulaFL"];
-}
-else {
-    $fl = 0;
-}
-
-if(isset($_GET["formulaFI"])) {
-    $fi = $_GET["formulaFI"];
-}
-else {
-    $fi = 0;
+# Check for any individual field errors and alert the user
+if($form->isSubmitted()) {
+    $errors = $form->validate(
+        [
+            'step1' => 'required',
+            'step2' => 'required',
+            'step3' => 'required|min:0',
+            'step4' => 'required|min:0|max:1.0',
+            'step5' => 'required|min:0|max:1.0',
+            'step6' => 'required|min:0|max:1.0',
+            'step7' => 'required|numeric|min:0',
+        ]
+    );
 }
 
-if(isset($_GET["formulaFC"])) {
-    $fc = $_GET["formulaFC"];
-}
-else {
-    $fc = 0;
+# If no errors then update the variables and compute the N result
+if($form->isSubmitted()) {
+    if (!$errors){
+        # formula variables from submitted form
+        # Drake equation: N = R* • fp • ne • fl • fi • fc • L
+        if(isset($_GET["step1"])) {
+            $r = $_GET["step1"];
+        }
+
+        if(isset($_GET["step2"])) {
+            $fp = $_GET["step2"];
+        }
+
+        if(isset($_GET["step3"])) {
+            $ne = $_GET["step3"];
+        }
+
+        if(isset($_GET["step4"])) {
+            $fl = $_GET["step4"];
+        }
+
+        if(isset($_GET["step5"])) {
+            $fi = $_GET["step5"];
+        }
+
+        if(isset($_GET["step6"])) {
+            $fc = $_GET["step6"];
+        }
+
+        if(isset($_GET["step7"])) {
+            $l = $_GET["step7"];
+        }
+    }
 }
 
-if(isset($_GET["formulaL"])) {
-    $l = $_GET["formulaL"];
-}
-else {
-    $l = 0;
-}
-
-// calculate the result of N
-// Drake equation: N = R* • fp • ne • fl • fi • fc • L
+# calculate the result of N
+# Drake equation: N = R* • fp • ne • fl • fi • fc • L
 $n = $r * $fp * $ne * $fl * $fi * $fc * $l;
 
 
-// the calculation is ready to display
+# the calculation is ready to display
 if($n>0) {
     $displayResult = 'DISPLAY';
 }
 else {
     $displayResult = '';
 }
-
-/*
-echo "formulaR is $r <br />";
-echo "formulafp is $fp <br />";
-echo "formulaNE is $ne <br />";
-echo "formulaFL is $fl <br />";
-echo "formulaFI is $fi <br />";
-echo "formulaFC is $fc <br />";
-echo "formulaL is $l <br />";
-echo "Result is $n";
-*/
