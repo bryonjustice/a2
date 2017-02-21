@@ -43,22 +43,23 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <h2>
-                    <small>
-                    Result: There are <?=$n?> communicating civilizations
-                    </small>
-                    <h2/>
-
-                    <div class="bs-component">
+                    <div class="bs-component"><br /><br />
                         <blockquote>
-                        <p>Based on the calculations you entered there are
-                        <span class="result"><?=$n?></span>
-                        communicating civilizations in our Milky Way Galaxy
-                        alone. If intelligent life exists within our home galaxy
-                        then it surely would exist in others.  Estimates vary
-                        but among scientists an acceptable range is between 100
-                        billion and 200 billion galaxies in the Universe.</p>
+                            <p>Result: There are <?=$n?> communicating
+                            civilizations.</p>
+                            <small>
+                            Based on the calculations you entered there are
+                            <span class="result"><?=$n?></span>
+                            communicating civilizations in our Milky Way Galaxy
+                            alone. If intelligent life exists within our home
+                            galaxy then it surely would exist in others.
+                            Estimates vary but among scientists an acceptable
+                            range is between 100 billion and 200 billion
+                            galaxies in the Universe.
+                            </small>
                         </blockquote>
+                        <a class="btn btn-primary btn-small" href="index.php"
+                            role="button">Try Again</a>
                     </div>
                 </div>
                 <div class="col-md-2"></div>

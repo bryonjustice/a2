@@ -12,6 +12,8 @@ $fi = 0;
 $fc = 0;
 $l = 0;
 
+$currentURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+
 $form = new DWA\Form($_GET);
 
 if(isset($_GET['step1'])) {
