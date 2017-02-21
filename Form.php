@@ -168,9 +168,12 @@ class Form {
             'email' => ' is not a valid email address.',
             'min' => ' has to be greater than or equal '.$parameter,
             'max' => ' has to be less than or equal '.$parameter,
+             # Extending support for float message
+            'float' => ' has to be a floating point number (example .01 or .99)',
         ];
 
-        # If a message for the rule was found, use that, otherwise default to " has an error"
+        # If a message for the rule was found, use that,
+        # otherwise default to " has an error"
         $message = isset($language[$rule]) ? $language[$rule] : ' has an error.';
 
         return $message;
@@ -222,10 +225,10 @@ class Form {
 
 
     /**
-	* Returns value if the given value is GREATER THAN (non-inclusive) the given parameter
+	  * Returns value if the given value is GREATER THAN (non-inclusive) the given parameter
 	*/
     private function min($value, $parameter) {
-        return floatval($value) >= floatval($parameter);
+        return floatval($value) > floatval($parameter);
     }
 
 
@@ -236,5 +239,15 @@ class Form {
         return floatval($value) <= floatval($parameter);
     }
 
+    /**
+  * Returns boolean if given value contains a float
+  */
+    private function float($value) {
+  		if (is_numeric($value)){
+  			$value = floatval($value);
+  		}
+
+  		return is_float($value);
+  	}
 
 } # end of class

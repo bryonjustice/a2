@@ -26,12 +26,12 @@ if(isset($_GET['step2'])) {
 if($form->isSubmitted()) {
     $errors = $form->validate(
         [
-            'step1' => 'required',
-            'step2' => 'required',
-            'step3' => 'required|min:0',
-            'step4' => 'required|min:0|max:1.0',
-            'step5' => 'required|min:0|max:1.0',
-            'step6' => 'required|min:0|max:1.0',
+            'step1' => 'required|float',
+            'step2' => 'required|float',
+            'step3' => 'required|min:0|float',
+            'step4' => 'required|min:0|max:1.0|float',
+            'step5' => 'required|min:0|max:1.0|float',
+            'step6' => 'required|min:0|max:1.0|float',
             'step7' => 'required|numeric|min:0',
         ]
     );

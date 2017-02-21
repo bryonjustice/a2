@@ -30,7 +30,9 @@
                 in the search for extraterrestrial intelligence.  He helped to
                 found <a href="http://www.seti.org/">SETI</a>, perform many of
                 the earliest observational attempts to detect extraterrestrial
-                communication and he developed the Drake Equation.</p>
+                communication and he developed the Drake Equation, a formula to
+                estimate the number of active, communicative extraterrestrial
+                civilizations in our galaxy.</p>
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -208,7 +210,7 @@
 
                         <div class="col-md-9">
                             <input type="radio" name="step2" value="1.0"
-                            <?php if($fp == '1.0') echo 'CHECKED'?>>100%. 
+                            <?php if($fp == '1.0') echo 'CHECKED'?>>100%.
                             (Current research states that this is likely the
                             rule)<br>
                         </div>
@@ -244,11 +246,11 @@
 
                     <p class="hint">Drake's initial calculation estimated that
                     100 percent of all planets that could develop life would
-                    develop life.
+                    develop life.  Valid entries range from 0.0 to 1.0.
                     </p>
                     <input type="text" name="step4" id="step4"
                         value="<?=$form->prefill('step4')?>"
-                        placeholder="1.0" min="0"/>
+                        placeholder="1.0"/>
                 </div>
                 <br />
 
@@ -261,10 +263,10 @@
 
                     <p class="hint">Drake, also optimistically, assumed that 100
                     percent of these planets would eventually develop
-                    intelligent life.</p>
+                    intelligent life. Valid entries range from 0.0 to 1.0.</p>
                     <input type="text" name="step5" id="step5"
                         value="<?=$form->prefill('step5')?>"
-                        placeholder="1.0" min="0" max="1"/>
+                        placeholder="1.0"/>
                 </div>
                 <br />
 
@@ -275,10 +277,11 @@
                     <span>(required) *</span>
 
                     <p class="hint">Drake's calculation projected that between
-                    10-20% of intelligent life would communicate.</p>
+                    10-20% of intelligent life would communicate. Valid entries
+                    range from 0.0 to 1.0.</p>
                     <input type="text" name="step6" id="step6"
                         value="<?=$form->prefill('step6')?>"
-                        placeholder="0.2" min="0" max="1"/>
+                        placeholder="0.2"/>
                 </div>
                 <br />
 
@@ -290,10 +293,11 @@
 
                     <p class="hint">The original estimates forecasted between
                     1000-100,000,000 years.  Figures can be wildly different.
+                    Valid entries range from 0.0 to 1.0.
                     </p>
                     <input type="text" name="step7" id="step7"
                         value="<?=$form->prefill('step7')?>"
-                        placeholder="320.0" min="0"/>
+                        placeholder="320.0"/>
                 </div>
                 <input type="submit" class="btn btn-primary btn-small">
                 <br />
