@@ -149,7 +149,7 @@
 
                 <!-- 2. RADIO fp VALUE -->
                 <div class="form-group">
-                    <label for="step2">Step 2: What fraction of stars in the
+                    <label>Step 2: What fraction of stars in the
                     galaxy have planets</label>
                     <span>(required) *</span>
 
