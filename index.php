@@ -46,7 +46,7 @@
                     <div class="bs-component"><br />
                         <p class="formula">
                             <img src="images/alienResult.png"
-                                alt="Drake Equation Results" width="35%"/>
+                                alt="Drake Equation Results" width="200"/>
                         </p>
                         <blockquote>
                             <p>Result: There are <?=$n?> communicating
@@ -215,9 +215,9 @@
 
                         <div class="col-md-9">
                             <input type="radio" name="step2" value="1.0"
-                            <?php if($fp == '1.0') echo 'CHECKED'?>required>100%
-                            (Current research states that this is likely the
-                            rule)<br>
+                            required <?php if($fp == '1.0') echo 'CHECKED'?>>
+                            100% (Current research states that this is likely
+                            the rule)<br>
                         </div>
                     </div>
                 </div>
