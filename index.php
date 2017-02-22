@@ -42,8 +42,12 @@
         <!-- RESULT SECTION -->
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="bs-component"><br /><br />
+                <div class="col-md-8"><br />
+                    <div class="bs-component"><br />
+                        <p class="formula">
+                            <img src="images/alienResult.png"
+                                alt="Drake Equation Results" width="35%"/>
+                        </p>
                         <blockquote>
                             <p>Result: There are <?=$n?> communicating
                             civilizations.</p>
@@ -120,7 +124,7 @@
                     between 1.5 - 3 stars per year.
                     </p>
                     <select class="form-control" name="step1"
-                        id="step1">
+                        id="step1" required>
                         <option value="">
                             STEP 1 - SELECTION NEEDED
                         </option>
@@ -211,7 +215,7 @@
 
                         <div class="col-md-9">
                             <input type="radio" name="step2" value="1.0"
-                            <?php if($fp == '1.0') echo 'CHECKED'?>>100%.
+                            <?php if($fp == '1.0') echo 'CHECKED'?>required>100%
                             (Current research states that this is likely the
                             rule)<br>
                         </div>
@@ -235,7 +239,7 @@
                     </p>
                     <input type="text" name="step3" id="step3"
                         value="<?=$form->prefill('step3')?>"
-                        placeholder="0.4" />
+                        placeholder="example: 0.4" required/>
                 </div>
                 <br />
 
@@ -251,7 +255,7 @@
                     </p>
                     <input type="text" name="step4" id="step4"
                         value="<?=$form->prefill('step4')?>"
-                        placeholder="1.0"/>
+                        placeholder="example: 1.0" required/>
                 </div>
                 <br />
 
@@ -267,7 +271,7 @@
                     intelligent life. Valid entries range from 0.0 to 1.0.</p>
                     <input type="text" name="step5" id="step5"
                         value="<?=$form->prefill('step5')?>"
-                        placeholder="1.0"/>
+                        placeholder="example: 1.0" required/>
                 </div>
                 <br />
 
@@ -282,7 +286,7 @@
                     range from 0.0 to 1.0.</p>
                     <input type="text" name="step6" id="step6"
                         value="<?=$form->prefill('step6')?>"
-                        placeholder="0.2"/>
+                        placeholder="example: 0.2" required/>
                 </div>
                 <br />
 
@@ -298,7 +302,7 @@
                     </p>
                     <input type="text" name="step7" id="step7"
                         value="<?=$form->prefill('step7')?>"
-                        placeholder="320.0"/>
+                        placeholder="example: 320.0" required/>
                 </div>
                 <input type="submit" class="btn btn-primary btn-small">
                 <br />

@@ -1,9 +1,14 @@
 <?php
+# Require the Form and DrakeEquation classes
 require('Form.php');
+require('DrakeEquation.php');
 
-# Drake equation: N = R* • fp • ne • fl • fi • fc • L
-# Setting default values for the formula fields
-# If the form has errors the formula will return 0
+# Instantiate 1) a Form object for validation and 2) an equation result object
+$form = new DWA\Form($_GET);
+$formResult = new DrakeEquation();
+
+# Reference: Drake equation: N = R* • fp • ne • fl • fi • fc • L
+# Establish a base set of forumla values
 $r = 0;
 $fp = 0;
 $ne = 0;
@@ -12,12 +17,9 @@ $fi = 0;
 $fc = 0;
 $l = 0;
 
-$currentURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-
-$form = new DWA\Form($_GET);
-
+# Override values if submitted
 if(isset($_GET['step1'])) {
-    $r = $_GET['step1'];
+    $r = floatval($_GET['step1']);
 }
 
 if(isset($_GET['step2'])) {
@@ -75,11 +77,9 @@ if($form->isSubmitted()) {
 }
 
 # calculate the result of N
-# Drake equation: N = R* • fp • ne • fl • fi • fc • L
-$n = $r * $fp * $ne * $fl * $fi * $fc * $l;
+$n = ($formResult->calculate($r,$fp,$ne,$fl,$fi,$fc,$l));
 
-
-# the calculation is ready to display
+# if the result ($n) is greater than zero the calculation is ready to display
 if($n>0) {
     $displayResult = 'DISPLAY';
 }
