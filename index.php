@@ -298,7 +298,7 @@
 
                     <p class="hint">The original estimates forecasted between
                     1000-100,000,000 years.  Figures can be wildly different.
-                    Valid entries range from 0.0 to 1.0.
+                    Enter your best hypothesis.
                     </p>
                     <input type="text" name="step7" id="step7"
                         value="<?=$form->prefill('step7')?>"
