@@ -59,7 +59,7 @@
                             galaxy then it surely would exist in others.
                             Estimates vary but among scientists an acceptable
                             range is between 100 billion and 200 billion
-                            galaxies in the Universe.
+                            galaxies exist in the Universe.
                             </small>
                         </blockquote>
                         <a class="btn btn-primary btn-small" href="index.php"
@@ -308,7 +308,7 @@
                 <br />
                 <br />
                 <br />
-            </form>
+                </form>
             </div>
             <!-- FORM :: END -->
             <div class="col-md-2"></div>

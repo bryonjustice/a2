@@ -9,22 +9,14 @@ $formResult = new DrakeEquation();
 
 # Reference: Drake equation: N = R* • fp • ne • fl • fi • fc • L
 # Establish a base set of forumla values
-$r = 0;
-$fp = 0;
-$ne = 0;
-$fl = 0;
-$fi = 0;
-$fc = 0;
-$l = 0;
 
-# Override values if submitted
-if(isset($_GET['step1'])) {
-    $r = floatval($_GET['step1']);
-}
-
-if(isset($_GET['step2'])) {
-    $fp = $_GET['step2'];
-}
+$r = floatval($form->get('step1',0));
+$fp = floatval($form->get('step2',0));
+$ne = floatval($form->get('step3',0));
+$fl = floatval($form->get('step4',0));
+$fi = floatval($form->get('step5',0));
+$fc = floatval($form->get('step6',0));
+$l = floatval($form->get('step7',0));
 
 # Check for any individual field errors and alert the user
 if($form->isSubmitted()) {
@@ -39,41 +31,6 @@ if($form->isSubmitted()) {
             'step7' => 'required|numeric|min:0',
         ]
     );
-}
-
-# If no errors then update the variables and compute the N result
-if($form->isSubmitted()) {
-    if (!$errors){
-        # formula variables from submitted form
-        # Drake equation: N = R* • fp • ne • fl • fi • fc • L
-        if(isset($_GET["step1"])) {
-            $r = $_GET["step1"];
-        }
-
-        if(isset($_GET["step2"])) {
-            $fp = $_GET["step2"];
-        }
-
-        if(isset($_GET["step3"])) {
-            $ne = $_GET["step3"];
-        }
-
-        if(isset($_GET["step4"])) {
-            $fl = $_GET["step4"];
-        }
-
-        if(isset($_GET["step5"])) {
-            $fi = $_GET["step5"];
-        }
-
-        if(isset($_GET["step6"])) {
-            $fc = $_GET["step6"];
-        }
-
-        if(isset($_GET["step7"])) {
-            $l = $_GET["step7"];
-        }
-    }
 }
 
 # calculate the result of N

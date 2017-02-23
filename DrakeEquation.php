@@ -3,9 +3,9 @@
 class DrakeEquation {
 
     /**
-	  * Properties
-	  * Drake equation: N = R* • fp • ne • fl • fi • fc • L
-	  */
+    * Properties
+    * Drake equation: N = R* • fp • ne • fl • fi • fc • L
+    */
 
     private $r;  # Equates to R* in the equation
     private $fp; # Equates to fp in the equation
@@ -15,16 +15,20 @@ class DrakeEquation {
     private $fc; # Equates to fc in the equation
     private $l;  # Equates to L in the equation
 
-	  public function calculate(Float $r, Float $fp, Float $ne, Float $fl,
+    /**
+    * Calculate Drake Equation: N = R* • fp • ne • fl • fi • fc • L
+    */
+
+    public function calculate(Float $r, Float $fp, Float $ne, Float $fl,
     Float $fi, Float $fc, Float $l) {
 		    return $this->process($r, $fp, $ne, $fl, $fi, $fc, $l);
 	  }
 
     private function process(Float $r, Float $fp, Float $ne, Float $fl,
     Float $fi, Float $fc, Float $l) {
-		    $n = $r * $fp * $ne * $fl * $fi * $fc * $l;
+        $n = $r * $fp * $ne * $fl * $fi * $fc * $l;
 
         return $n;
-	  }
+    }
 
 } # eoc
